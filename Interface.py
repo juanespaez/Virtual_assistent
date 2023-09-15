@@ -1,5 +1,6 @@
 import customtkinter as ctk
 
+
 class slide_panel(ctk.CTkFrame):
     def __init__(self, parent, start_pos, end_pos):
         super().__init__(master=parent)
@@ -90,3 +91,19 @@ def login():
     button.pack(pady=12, padx=10)
 
     return root.mainloop()
+
+
+def start():
+    window = ctk.CTk()
+    ctk.set_appearance_mode("dark")
+    ctk.set_default_color_theme("dark-blue")
+    window.title("Home page")
+    window.geometry("600x400")
+    label = ctk.CTkLabel(master=window, text="Sing in ")  # tittle
+    label.pack(pady=12, padx=10)
+
+    button = ctk.CTkButton(master=window, text="login", command=login)
+    button.pack(pady=12, padx=10)
+    # Creamos el espacio entre el primer boton y el segundo boton
+
+    window.mainloop()
