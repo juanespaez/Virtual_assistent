@@ -5,4 +5,4 @@ Some libraries used
 - wikipedia
 - nltk
 - json
-- transformers
+- transformers (AutoModelForQuestionAnswering, AutoTokenizer, pipeline)
