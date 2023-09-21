@@ -36,12 +36,13 @@ class Database:
             pywhatkit.playonyt(search)
 
     def specific_search(self):
-        print(self.search)
         search = str(self.search)
         if ("who is" in search) or ("what is" in search) or ("who was" in search):
-            info = wikipedia.summary(search, 2)
-            print(info)
+            info = wikipedia.summary(search, 2).__str__()
+            return info
 
     def database_search(self):
-        pass # aun no tenemso nada que poner pero aqui ira el codigo que tendra el modelo de busqueda en la base de
-        # datos y el modole que verificara si la respuesta es buena o no
+        pass
+
+    def __str__(self):
+        return self.search
