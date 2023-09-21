@@ -14,6 +14,14 @@ class User:
         elif self.type == 3:
             self.question = input("What song you want to play? ").__str__()
 
+        elif self.type == 4:
+            qainput = dict()
+            question = input("What is your question? ")
+            qainput['question'] = question
+            context = input('Enter the context to answer the question: ')
+            qainput['context'] = context
+            self.question = qainput
+
     def __str__(self): # funtion that lets the question be return with no issues 
         return self.question
 
