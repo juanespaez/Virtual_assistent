@@ -4,16 +4,24 @@ from VirtualAssistent import *
 from User import *
 from NaturalLanguajeModel import *
 from Response import *
+from database import *
 
 while True:
     Cortana = VirtualAssistent()
     option = Cortana.welcome()
     if option == 1:
-        pass
+        search = User(option)
+        Database(option, search)
+
     elif option == 2:
-        pass
+        search = User(option)
+        answer = Database(option, search)
+        answer2 = answer.specific_search()
+        print(answer2)
+
     elif option == 3:
-        pass
+        search = User(option)
+        Database(option, search)
 
     elif option == 4:
         doubt = User(option)
