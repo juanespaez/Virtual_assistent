@@ -5,11 +5,19 @@ import json
 nltk.download("punkt")
 stemmer = PorterStemmer()
 
-def tokenize(setence):
-    return nltk.word_tokenize(setence)
 
-def stem(word):
-    return stemmer.stem(word.lower())
+class NLP:
 
-def bag_of_words(tokenize_sentence, all_words):
-    pass# aqui iran los modelos de compresion de vocabulario
+    def __init__(self, sentece, word):
+        self.sentence = sentece
+        self.word = word
+        
+    def tokenize(self):
+        return nltk.word_tokenize(self.sentence)
+
+    def stem(self):
+        return stemmer.stem(self.word.lower())
+
+    def bag_of_words(self, tokenize_sentence, all_words):
+        pass  # aqui iran los modelos de compresion de vocabulario
+
