@@ -1,6 +1,3 @@
-from Response import *
-
-
 class VirtualAssistent:
 
     def __init__(self, name='Cortana'):
