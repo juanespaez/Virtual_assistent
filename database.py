@@ -5,7 +5,7 @@ import wikipedia
 
 
 class Database:
-    def __init__(self, question, search):
+    def __init__(self, question, search): # la clase recibe la opcion de la pregunta que sera un numero y la pregunta de busqueda
         self.question = question  # tiene  solo un atributo con el cual jugaremos con las demas funciones
         self.search = search
 
@@ -30,19 +30,16 @@ class Database:
         print(my_search)
 
     def play_music(self):
-        print(self.search)
-        search = str(self.search)
+        print(self.search) # imprimos la respuesta para tenerla en el terminal
+        search = str(self.search) # convertimos la busqueda, o sea la pregunta que hace el usuario a str
         if "play" in search:
-            pywhatkit.playonyt(search)
+            pywhatkit.playonyt(search) # usamos la libreria que nos dejara usar youtubr
 
     def specific_search(self):
         search = str(self.search)
-        if ("who is" in search) or ("what is" in search) or ("who was" in search):
-            info = wikipedia.summary(search, 2).__str__()
+        if ("who is" in search) or ("what is" in search) or ("who was" in search): # agregams las palabras claves para identificar la busqueda
+            info = wikipedia.summary(search, 2).__str__() # usamos el __str__ para que no nos de un error de objeto
             return info
 
-    def database_search(self):
-        pass
-
-    def __str__(self):
+    def __str__(self): # funcion que no deja retornar los objetos com str en muchos casos
         return self.search
