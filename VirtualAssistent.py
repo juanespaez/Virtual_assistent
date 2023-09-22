@@ -9,7 +9,9 @@ class VirtualAssistent:
         1. General knowledge question
         2. Specific search
         3. Play a song
-        4. Question with context """)
+        4. Question with context
+        5. Exit
+        """)
 
         option = int(input('Choose one option: '))
         return option
