@@ -1,7 +1,3 @@
-class NaturalLanguajeModel:
-
-    pass
-
 
 class Bert(NaturalLanguajeModel):
 
