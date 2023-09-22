@@ -42,26 +42,3 @@ while True:
     elif option == 5:
         print('Bye Bye')
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-pantalla_principal()
-
-type_search = int(input("""What is your desire?
-    1 - general question knowledge theme
-    2 - specific question search
-    3 - play a song
-    > """))
-search = User(type_search)
-
-Database(type_search, search)
