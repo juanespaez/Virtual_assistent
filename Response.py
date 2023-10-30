@@ -1,6 +1,7 @@
 from NaturalLanguajeModel import *
+from base_interface import *
 
-class BertResponse():
+class BertResponse(BertResponseBase):
 
     def __init__(self, qainput):
         self.qainput = qainput
