@@ -33,43 +33,7 @@
         "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
         "responses": ["Happy to help!", "Any time!", "My pleasure"]
       },
-      {
-        "tag": "items",
-        "patterns": [
-          "Which items do you have?",
-          "What kinds of items are there?",
-          "What do you sell?"
-        ],
-        "responses": [
-          "We sell coffee and tea",
-          "We have coffee and tea"
-        ]
-      },
-      {
-        "tag": "payments",
-        "patterns": [
-          "Do you take credit cards?",
-          "Do you accept Mastercard?",
-          "Can I pay with Paypal?",
-          "Are you cash only?"
-        ],
-        "responses": [
-          "We accept VISA, Mastercard and Paypal",
-          "We accept most major credit cards, and Paypal"
-        ]
-      },
-      {
-        "tag": "delivery",
-        "patterns": [
-          "How long does delivery take?",
-          "How long does shipping take?",
-          "When do I get my delivery?"
-        ],
-        "responses": [
-          "Delivery takes 2-4 days",
-          "Shipping takes 2-4 days"
-        ]
-      },
+
       {
         "tag": "funny",
         "patterns": [
@@ -81,6 +45,187 @@
           "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
           "What did the buffalo say when his son left for college? Bison."
         ]
-      }
-    ]
+      },
+      {
+        "tag": "age",
+        "patterns": ["How old are you?", "What is your age?", "Age?"],
+        "responses": ["I am a computer program, so I don't have an age."]
+      },
+      {
+        "tag": "creator",
+        "patterns": ["who made you?", "who is your creator?", "who build you?", "creator?", "Master?", "Lord?"],
+        "responses": ["I was made by Juan Jose Rios and my lord Juan Esteban Paez."]
+      },
+      {
+        "tag": "name",
+        "patterns": ["whats your name?", "name of yours?", "name?", "identification?", "what is your name?"],
+        "responses": ["My name is Cortana your virtual assistent of trust", "My name is Cortana but if you want you can call me Corti"]
+      },
+      {"tag": "calling",
+      "patterns": ["Cortana?", "Corti?"],
+      "responses": ["yes?"]
+    },
+    {
+      "tag":"status",
+      "patterns":["Are you there?", "Are you awake?","Are you still here?", "can you help me?"],
+      "responses":["yes", "indeed", "Of course", "yep", "I am here"]
+    },
+  {
+    "tag":"yourself",
+      "patterns":["What do you like?", "what is your favorite color?","do you like something", "Any preference at something?","tell me what you like?"],
+      "responses":["I was made by the preference and favoritism of my master, so everything he likes i like it too"]
+  },
+  {
+    "tag": "compliment",
+    "patterns": ["You're doing great", "Nice work", "Impressive", "You ar ethe best"],
+    "responses": ["Thank you! I'm here to help.", "Appreciate the kind words!", "Thanks! How can I assist you further?"]
+  },
+  {
+    "tag": "happiness",
+    "patterns": ["I'm happy", "Feeling joyful", "I feel great"],
+    "responses": ["That's wonderful! What's making you happy?", "Great to hear! What's bringing you joy?", "I'm glad to hear that!"]
+  },
+  {
+    "tag": "sadness",
+    "patterns": ["I'm sad", "Feeling down", "I feel lonely"],
+    "responses": ["I'm sorry to hear that. Would you like to talk about why you're feeling this way?", "I'm here for you. Sharing often helps. What's going on?", "It's okay to feel sad. Is there something specific bothering you?"]
+  },
+  {
+    "tag": "anger",
+    "patterns": ["I'm angry", "Feeling frustrated", "I'm mad"],
+    "responses": ["I understand, anger is a natural emotion. What's causing you to feel this way?", "It's okay to feel angry. Let's talk about what's bothering you.", "Take a deep breath. What's been bothering you?"]
+  },
+  {
+    "tag": "fear",
+    "patterns": ["I'm scared", "Feeling fearful", "I'm afraid"],
+    "responses": ["I'm here for you. Can you tell me what's causing you to feel scared?", "Fear is natural. Let's discuss what's making you afraid.", "It's okay to have fears. We can work through them together."]
+  },
+  {
+    "tag": "love",
+    "patterns": ["I'm in love", "Feeling romantic", "I love someone"],
+    "responses": ["Love is a beautiful feeling! Tell me more about it.", "Love is wonderful. Care to share more about who you love?", "Love is amazing! What makes you feel this way?"]
+  },
+  {
+    "tag": "gratitude",
+    "patterns": ["I'm grateful", "Feeling thankful", "I appreciate"],
+    "responses": ["Gratitude is important! What are you feeling grateful for?", "Expressing gratitude is wonderful. What's making you feel this way?", "It's great to be thankful. What's going on that's making you appreciative?"]
+  },
+  {
+    "tag": "loneliness",
+    "patterns": ["I'm lonely", "Feeling alone", "I feel isolated"],
+    "responses": ["I'm here with you. Reach out and let's talk about what's going on.", "I'm sorry you're feeling this way. Is there something you'd like to share?", "You're not alone. We can chat and try to ease that feeling of loneliness."]
+  },
+  {
+    "tag": "excitement",
+    "patterns": ["I'm excited", "Feeling enthusiastic", "I'm pumped"],
+    "responses": ["Excitement is contagious! What's got you feeling so enthusiastic?", "That's awesome! What's making you so excited?", "I'm thrilled for you! What's the exciting news?"]
+  },
+  {
+    "tag": "self_introduction",
+    "patterns": ["Tell me about yourself", "Introduce yourself", "Who are you?"],
+    "responses": ["Sure! I'm a virtual assistant here to help you. Tell me about yourself! What are your interests or hobbies?"]
+  },
+  {
+    "tag": "interests",
+    "patterns": ["I like {interest}", "My hobby is {interest}", "I enjoy {interest}"],
+    "responses": ["That's great! {interest} is a fantastic hobby. Tell me more about why you enjoy it."]
+  },
+  {
+    "tag": "profession",
+    "patterns": ["I am a {profession}", "My job is {profession}", "I work as a {profession}"],
+    "responses": ["That's interesting! What do you like most about being a {profession}?"]
+  },
+  {
+    "tag": "location",
+    "patterns": ["I live in {city}", "My location is {city}", "I'm from {city}"],
+    "responses": ["{city} sounds like a nice place! What do you enjoy most about living there?"]
+  },
+  {
+    "tag": "family",
+    "patterns": ["I have {number} siblings", "I'm married", "I have kids"],
+    "responses": ["Family is important! Tell me more about your family. What do you enjoy doing together?"]
+  },
+  {
+    "tag": "default",
+    "patterns": ["", "Okay", "Hmm", "I see", "Alright"],
+    "responses": ["I'm sorry, I didn't understand that.", "Could you please rephrase that?", "I'm not sure I follow. Can you clarify?"]
+  }
+],
+"entities": [
+  {
+    "entity": "interest",
+    "examples": ["cooking", "traveling","Reading",
+    "Music",
+    "Exercise and Fitness",
+    "Travel",
+    "Cooking and Baking",
+    "Gardening",
+    "Sports",
+    "Art and Creativity",
+    "Photography",
+    "Technology and Gadgets",
+    "Nature and Outdoors",
+    "DIY and Crafting",
+    "Gaming",
+    "Movies and TV Shows",
+    "Volunteer Work and Philanthropy",
+    "History and Culture",
+    "Pets and Animals",
+    "Fashion and Style",
+    "Sustainable Living",
+    "Meditation and Mindfulness"
+]
+  },
+  {
+    "entity": "profession",
+    "examples": ["teacher", "engineer", "artist", "doctor","Retail Salesperson",
+    "Cashier",
+    "Office Clerks",
+    "Registered Nurses",
+    "Customer Service Representatives",
+    "Waiters and Waitresses",
+    "Food Preparation and Serving Workers",
+    "Janitors and Cleaners",
+    "Construction Workers",
+    "Teachers",
+    "Accountants and Auditors",
+    "Software Developers",
+    "Marketing and Sales Managers",
+    "Medical and Health Services Managers",
+    "Truck Drivers",
+    "Carpenters",
+    "Farmers and Agricultural Workers",
+    "Mechanics and Automotive Technicians",
+    "Electricians",
+    "Administrative Assistants","Astronaut",
+    "Aircraft Pilot",
+    "Astronomer",
+    "Art Conservator",
+    "Foley Artist",
+    "Flavorist",
+    "Petroleum Engineer",
+    "Sommelier",
+    "Cryptocurrency Analyst",
+    "Ethical Hacker",
+    "Heli-ski Guide",
+    "Snake Milker",
+    "Ski Lift Operator",
+    "Ocularist",
+    "Blind Taste Tester",
+    "Rodeo Clown",
+    "Professional Ethical Hacker",
+    "Animal Whisperer",
+    "Waterslide Tester",
+    "Fortune Cookie Writer"]
+  },
+  {
+    "entity": "city",
+    "examples": ["New York", "London", "Paris", "Sydney"]
+  },
+  {
+    "entity": "number",
+    "examples": ["one", "two", "three", "four"]
+  }
+]
+
   }
