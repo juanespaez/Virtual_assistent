@@ -11,7 +11,8 @@ class VirtualAssistent:
         3. Play a song
         4. Question with context
         5. Exit
-        """)
+        6. NEW MODEL IN PROCESS WANNA CHAT WITH A NEW FRIEND
+        > """)
 
         option = int(input('Choose one option: '))
         return option
