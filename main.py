@@ -42,3 +42,6 @@ while True:
     elif option == 5:
         print('Bye Bye')
         break
+        
+    elif option == 6:
+        friend()
