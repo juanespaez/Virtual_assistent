@@ -21,7 +21,10 @@ class User:
             context = input('Enter the context to answer the question: ')
             qainput['context'] = context
             self.question = qainput
-
+            
+        elif self.type == 5:
+            print('Bye Bye')
+            
     def __str__(self): # funtion that lets the question be return with no issues 
         return self.question
 
