@@ -5,6 +5,7 @@ from User import *
 from NaturalLanguajeModel import *
 from Response import *
 from database import *
+from model_display import *
 
 while True:
     Cortana = VirtualAssistent()
