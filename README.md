@@ -106,14 +106,14 @@ main.py
 The `LLMClient` class in `src/Models/AIModelsApi.py` can be used independently anywhere in the project:
 
 ```python
-from src.Models.AIModelsApi import LLMClient
+from src.Services.AIModelsApi import LLMClient
 
 llm = LLMClient()
-reply = await llm.chat("What is Python?")           # returns string
-await llm.chat_stream("Tell me a joke")             # streams to stdout
+reply = await llm.chat("What is Python?")  # returns string
+await llm.chat_stream("Tell me a joke")  # streams to stdout
 
-llm = LLMClient(system_prompt="You are a chef.")    # custom persona
-llm.reset()                                         # clear history
+llm = LLMClient(system_prompt="You are a chef.")  # custom persona
+llm.reset()  # clear history
 ```
 
 ---
