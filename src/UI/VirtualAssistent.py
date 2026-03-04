@@ -11,11 +11,16 @@ class VirtualAssistent:
     def __init__(self, name: str = "Cortana"):
         self.name = name
         self._voice_input = VoiceInput()
+        self._voice_mode = False
         self._menu_options: dict[int, tuple[str, mode]] = {
             1: ("Ask a question", mode.QUESTIONS),
             2: ("Play a song",    mode.PLAY_MUSIC),
-            3: ("Exit",           mode.EXIT),
+            0: ("Exit",           mode.EXIT),
         }
+
+    @property
+    def voice_mode(self) -> bool:
+        return self._voice_mode
 
     def show_menu(self) -> None:
         print(f"\nHello! My name is {self.name}, I'm here to help you.")
@@ -36,24 +41,36 @@ class VirtualAssistent:
 
     def input_loop(self, label: str, hint: str):
         """
-        Reusable input generator — supports both typing and voice (press V).
-        Yields user input until 'back' is typed or said.
+        Reusable input generator — supports typing and voice.
+        - Type 'v' once to switch to voice mode (stays on)
+        - Say or type 'back' to return to the menu
+        - Say or type 'bye bye' to exit voice mode back to typing
         """
-        print(f"\n{hint} Type 'back' to return to the menu. Press V to use voice.\n")
+        print(f"\n{hint}")
+        print("Type 'back' to return to menu | Type 'v' to enable voice mode\n")
+
         while True:
-            value = input(label).strip()
-
-            if not value:
-                continue
-
-            # Voice input trigger
-            if value.lower() == "v":
-                spoken = self._voice_input.listen()
-                if spoken is None:
+            if self._voice_mode:
+                value = self._voice_input.listen()  # listen() prints its own messages
+                if value is None:
                     continue
-                value = spoken
+            else:
+                value = input(label).strip()
+                if not value:
+                    continue
+                if value.lower() == "v":
+                    self._voice_mode = True
+                    print("🎤 Voice mode ON — say 'bye bye' to switch back to typing.\n")
+                    continue
 
+            # Check control words before yielding to handler
             if value.lower() == "back":
+                self._voice_mode = False
                 return
+
+            if value.lower() in ("bye bye", "bye-bye"):
+                self._voice_mode = False
+                print("⌨️  Voice mode OFF — back to typing.\n")
+                continue
 
             yield value

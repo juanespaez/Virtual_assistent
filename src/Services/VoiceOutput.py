@@ -1,30 +1,41 @@
-import pyttsx3
+import tempfile
+import os
+import edge_tts
+import pygame
 
 
 class VoiceOutput:
     """
-    Handles text-to-speech output.
-    Uses pyttsx3 — works fully offline, no API needed.
+    Handles text-to-speech using Microsoft Edge's neural voices.
+    Sounds much more human than pyttsx3. Requires internet connection.
+
+    Best English voices:
+        en-US-AriaNeural      — natural female, great for assistants
+        en-US-JennyNeural     — friendly female
+        en-US-GuyNeural       — natural male
+        en-US-EricNeural      — calm male
+        en-GB-SoniaNeural     — British female
     """
 
-    def __init__(self, rate: int = 175, volume: float = 1.0):
-        self._engine = pyttsx3.init()
-        self._engine.setProperty("rate", rate)       # speed: 150-200 is natural
-        self._engine.setProperty("volume", volume)   # 0.0 to 1.0
-        self._set_voice()
+    def __init__(self, voice: str = "en-US-AriaNeural", rate: str = "+0%", volume: str = "+0%"):
+        self._voice = voice
+        self._rate = rate
+        self._volume = volume
+        pygame.mixer.init()
 
-    def speak(self, text: str) -> None:
-        """Speak the given text out loud."""
-        self._engine.say(text)
-        self._engine.runAndWait()
+    async def speak(self, text: str) -> None:
+        """Speak the given text using Edge TTS neural voice."""
+        communicate = edge_tts.Communicate(text, self._voice, rate=self._rate, volume=self._volume)
 
-    def _set_voice(self) -> None:
-        """Try to use a female English voice if available."""
-        voices = self._engine.getProperty("voices")
-        for voice in voices:
-            if "zira" in voice.name.lower() or "female" in voice.name.lower():
-                self._engine.setProperty("voice", voice.id)
-                return
-        # fallback to first available voice
-        if voices:
-            self._engine.setProperty("voice", voices[0].id)
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as f:
+            tmp_path = f.name
+
+        try:
+            await communicate.save(tmp_path)
+            pygame.mixer.music.load(tmp_path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)
+        finally:
+            pygame.mixer.music.unload()
+            os.remove(tmp_path)

@@ -1,6 +1,4 @@
 from click.exceptions import Exit
-
-from src.Core.Handlers.WhatsAppHandler import WhatsAppHandler
 from src.Types.AssistentTypeSolicitude import AssistentTypeSolicitude as mode
 from src.Core.Handlers.QuestionHandler import QuestionHandler
 from src.Core.Handlers.MusicHandler import MusicHandler
@@ -19,4 +17,3 @@ def register_all_handlers(controller, ui) -> None:
     controller.register(mode.QUESTIONS,  QuestionHandler(ui))
     controller.register(mode.PLAY_MUSIC, MusicHandler(ui))
     controller.register(mode.EXIT, Exit(ui))
-    controller.register(mode.SEND_MESSAGE, WhatsAppHandler(ui))
