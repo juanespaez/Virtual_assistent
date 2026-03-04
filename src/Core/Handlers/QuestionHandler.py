@@ -8,11 +8,12 @@ class QuestionHandler(BaseHandler):
     Handles the Q&A conversation loop.
     - Typing → streams response to terminal
     - Voice  → gets full response then speaks it
+    LLMClient is injected from outside so memory persists across sessions.
     """
 
-    def __init__(self, ui):
+    def __init__(self, ui, llm: LLMClient):
         super().__init__(ui)
-        self._llm = LLMClient()
+        self._llm = llm  # shared instance — never reset between menu visits
         self._voice_out = VoiceOutput()
 
     async def run(self) -> None:
@@ -24,11 +25,9 @@ class QuestionHandler(BaseHandler):
             print()
 
     async def _respond_text(self, question: str) -> None:
-        """Stream response word by word to terminal."""
         await self._llm.chat_stream(question)
 
     async def _respond_voice(self, question: str) -> None:
-        """Get full response, print it and speak it out loud."""
         reply = await self._llm.chat(question)
         print(f"Cortana: {reply}")
         await self._voice_out.speak(reply)
