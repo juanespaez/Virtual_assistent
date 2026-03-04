@@ -1,4 +1,4 @@
-from AssistentSelectionType import AssistentTypeSolicitude as option
+from AssistentTypeSolicitude import AssistentTypeSolicitude as option
 
 
 class User:

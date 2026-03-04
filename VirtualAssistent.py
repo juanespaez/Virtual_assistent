@@ -1,4 +1,4 @@
-from AssistentSelectionType import AssistentTypeSolicitude as mode
+from AssistentTypeSolicitude import AssistentTypeSolicitude as mode
 
 
 class VirtualAssistent:

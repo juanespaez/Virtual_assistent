@@ -1,6 +1,6 @@
-from AssistentSelectionType import AssistentTypeSolicitude as mode
+from AssistentTypeSolicitude import AssistentTypeSolicitude as mode
 from VirtualAssistent import VirtualAssistent
-from Database import Database
+from AssistentModes import AssistentModes
 
 
 class AssistentController:
@@ -35,7 +35,7 @@ class AssistentController:
     async def _question_loop(self):
         """Conversation loop — keeps chatting until user types 'back'."""
         self.ui.print_back_hint("Ask me anything!")
-        db = Database(mode.QUESTIONS.value, "")
+        db = AssistentModes(mode.QUESTIONS.value, "")
 
         while True:
             question = self.ui.prompt_question()
@@ -59,6 +59,6 @@ class AssistentController:
             if song.lower() == "back":
                 break
 
-            db = Database(mode.PLAY_MUSIC.value, song)
+            db = AssistentModes(mode.PLAY_MUSIC.value, song)
             await db.run()
             print()
