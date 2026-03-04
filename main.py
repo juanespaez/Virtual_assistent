@@ -13,10 +13,6 @@ if __name__ == "__main__":
         ui = VirtualAssistent(name="Cortana")
         controller = AssistentController(ui=ui)
         register_all_handlers(controller, ui)
-        asyncio.run(controller.run(
-
-
-
-        ))
+        asyncio.run(controller.run())
     except KeyboardInterrupt:
         print("\nGoodbye!")

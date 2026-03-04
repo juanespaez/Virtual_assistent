@@ -5,24 +5,22 @@ from src.Services.VoiceOutput import VoiceOutput
 
 class QuestionHandler(BaseHandler):
     """
-    Handles the Q&A conversation loop.
-    - Typing → streams response to terminal
-    - Voice  → gets full response then speaks it
-    LLMClient is injected from outside so memory persists across sessions.
+    Handles Q&A — receives a question and responds.
+    - Typing → streams response word by word
+    - Voice  → gets full response and speaks it
     """
 
     def __init__(self, ui, llm: LLMClient):
         super().__init__(ui)
-        self._llm = llm  # shared instance — never reset between menu visits
+        self._llm = llm
         self._voice_out = VoiceOutput()
 
-    async def run(self) -> None:
-        for question in self.ui.input_loop("You: ", "Ask me anything!"):
-            if self.ui.voice_mode:
-                await self._respond_voice(question)
-            else:
-                await self._respond_text(question)
-            print()
+    async def handle(self, user_input: str) -> None:
+        if self.ui.voice_mode:
+            await self._respond_voice(user_input)
+        else:
+            await self._respond_text(user_input)
+        print()
 
     async def _respond_text(self, question: str) -> None:
         await self._llm.chat_stream(question)
