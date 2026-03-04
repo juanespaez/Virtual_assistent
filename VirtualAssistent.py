@@ -1,15 +1,16 @@
-import asyncio
 from AssistentSelectionType import AssistentTypeSolicitude as mode
-from User import User
-from Database import Database
 
 
 class VirtualAssistent:
+    """
+    Only responsible for UI — showing menus and reading user input.
+    No logic, no loops, no decisions.
+    """
 
     def __init__(self, name: str = "Cortana"):
         self.name = name
 
-    def welcome(self) -> mode:
+    def show_menu(self):
         print(f"""
             Hello! My name is {self.name}, I'm here to help you.
             What do you want to do?
@@ -17,10 +18,16 @@ class VirtualAssistent:
               2. Play a song
               3. Exit
         """)
-        option = int(input("Choose an option: "))
-        return self.decision_filter(option)
 
-    def decision_filter(self, option: int) -> mode:
+    def get_option(self) -> mode:
+        while True:
+            try:
+                option = int(input("Choose an option: "))
+                return self._parse_option(option)
+            except ValueError:
+                print(" Invalid input, please enter 1, 2 or 3.\n")
+
+    def _parse_option(self, option: int) -> mode:
         if option == 1:
             return mode.QUESTIONS
         elif option == 2:
@@ -28,23 +35,11 @@ class VirtualAssistent:
         else:
             return mode.EXIT
 
-    async def run(self):
-        """Main loop — keeps the assistant running until the user exits."""
-        print(f"{self.name} is starting up...")
+    def prompt_question(self) -> str:
+        return input("You: ").strip()
 
-        while True:
-            selected_mode = self.welcome()
-            user = User(selected_mode)
+    def prompt_song(self) -> str:
+        return input("Song: ").strip()
 
-            if selected_mode == mode.EXIT:
-                break
-
-            db = Database(selected_mode.value, str(user))
-            await db.run()
-            print()  # spacing between interactions
-
-
-# Entry point
-if __name__ == "__main__":
-    assistant = VirtualAssistent(name="Cortana")
-    asyncio.run(assistant.run())
+    def print_back_hint(self, context: str):
+        print(f"\n{context} Type 'back' to return to the menu.\n")
