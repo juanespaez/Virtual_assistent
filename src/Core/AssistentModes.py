@@ -1,5 +1,5 @@
 import pywhatkit
-from api_implementation import LLMClient
+from src.Models.AIModelsApi import LLMClient
 
 
 class AssistentModes:

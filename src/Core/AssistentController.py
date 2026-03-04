@@ -1,6 +1,6 @@
-from AssistentTypeSolicitude import AssistentTypeSolicitude as mode
-from VirtualAssistent import VirtualAssistent
-from AssistentModes import AssistentModes
+from src.Types.AssistentTypeSolicitude import AssistentTypeSolicitude as mode
+from src.Core.VirtualAssistent import VirtualAssistent
+from src.Core.AssistentModes import AssistentModes
 
 
 class AssistentController:

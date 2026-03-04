@@ -1,6 +1,6 @@
 import asyncio
-from VirtualAssistent import VirtualAssistent
-from AssistentController import AssistentController
+from src.Core.VirtualAssistent import VirtualAssistent
+from src.Core.AssistentController import AssistentController
 
 if __name__ == "__main__":
     try:

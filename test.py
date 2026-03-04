@@ -1,4 +1,4 @@
-from AssistentTypeSolicitude import AssistentTypeSolicitude as selection
+from src.Types.AssistentTypeSolicitude import AssistentTypeSolicitude as selection
 
 x = selection.PLAY_MUSIC
 
